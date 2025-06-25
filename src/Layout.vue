@@ -1,12 +1,12 @@
 <template>
   <div class="flex h-screen flex-col font-comic">
-    <nav class="bg-brand-primary shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-primary shadow-lg">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
           <div class="flex items-center">
             <span class="text-3xl font-bold text-white">🎨 数字乐园</span>
           </div>
-          <div class="flex items-center space-x-2 sm:space-x-4">
+          <div class="flex items-center space-x-4">
             <router-link
               v-for="(route, index) in routes"
               :key="route.to"
@@ -28,7 +28,7 @@
         </div>
       </div>
     </nav>
-    <main class="flex-grow overflow-y-auto bg-brand-bg">
+    <main class="flex-grow overflow-y-auto bg-brand-bg pt-20">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />

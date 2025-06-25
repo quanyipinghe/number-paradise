@@ -27,7 +27,7 @@
           v-for="option in answerOptions"
           :key="option"
           @click="selectAnswer(option)"
-          class="flex h-20 w-20 items-center justify-center rounded-full border-4 border-brand-secondary bg-white text-3xl font-bold text-brand-text shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+          class="flex h-20 w-20 items-center justify-center rounded-full border-4 border-brand-secondary bg-white text-3xl font-bold text-brand-bg shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
           :class="{
             '!scale-110 !border-brand-accent !bg-brand-accent/30 ring-4 ring-brand-accent':
               selectedAnswer === option,
