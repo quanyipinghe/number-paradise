@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#F0F8FF"/>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif" font-size="32" font-weight="bold">
+    <tspan fill="#FF6347">1</tspan>
+    <tspan fill="#4682B4">2</tspan>
+    <tspan fill="#32CD32">3</tspan>
+  </text>
+</svg>

@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Luckiest Guy';
+  src: url('../assets/fonts/LuckiestGuy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('../assets/fonts/ComicNeue-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-bg text-brand-text;
+  }
+  h1, h2, h3 {
+    font-family: theme('fontFamily.display');
+  }
+}
