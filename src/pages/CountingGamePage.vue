@@ -58,68 +58,74 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useGameStore } from '../store/game'
+import { ref, onMounted } from 'vue';
+import { useGameStore } from '../store/game';
+import { audioService } from '../services/AudioService';
 
 // 使用Pinia Store
-const gameStore = useGameStore()
+const gameStore = useGameStore();
 
 // 组件内部状态
-const itemsToCount = ref(0)
-const answerOptions = ref<number[]>([])
-const selectedAnswer = ref<number | null>(null)
-const feedbackMessage = ref('')
-const isCorrect = ref(false)
-const currentEmoji = ref('🍎')
-const emojiPool = ['🍎', '🍌', '⭐', '🎈', '🚗', '🎁', '🍭']
+const itemsToCount = ref(0);
+const answerOptions = ref<number[]>([]);
+const selectedAnswer = ref<number | null>(null);
+const feedbackMessage = ref('');
+const isCorrect = ref(false);
+const currentEmoji = ref('🍎');
+const emojiPool = ['🍎', '🍌', '⭐', '🎈', '🚗', '🎁', '🍭', '⚽️', '⭐️', '🚀'];
 
 // 生成新游戏
 const setupNewGame = () => {
   // 随机选择一个新的 emoji
-  currentEmoji.value = emojiPool[Math.floor(Math.random() * emojiPool.length)]
+  currentEmoji.value = emojiPool[Math.floor(Math.random() * emojiPool.length)];
 
   // 实际数量 (例如，3到8之间)
-  const actualCount = Math.floor(Math.random() * 6) + 3
-  itemsToCount.value = actualCount
+  const actualCount = Math.floor(Math.random() * 6) + 3;
+  itemsToCount.value = actualCount;
 
   // 生成答案选项
-  const options = new Set<number>()
-  options.add(actualCount)
+  const options = new Set<number>();
+  options.add(actualCount);
   while (options.size < 4) {
-    const randomOption = Math.max(1, actualCount + Math.floor(Math.random() * 5) - 2)
-    options.add(randomOption)
+    const randomOption = Math.max(
+      1,
+      actualCount + Math.floor(Math.random() * 5) - 2
+    );
+    options.add(randomOption);
   }
-  answerOptions.value = Array.from(options).sort((a, b) => a - b)
+  answerOptions.value = Array.from(options).sort((a, b) => a - b);
 
   // 重置状态
-  selectedAnswer.value = null
-  feedbackMessage.value = ''
-  isCorrect.value = false
-}
+  selectedAnswer.value = null;
+  feedbackMessage.value = '';
+  isCorrect.value = false;
+};
 
 // 选择答案
 const selectAnswer = (option: number) => {
-  selectedAnswer.value = option
-}
+  selectedAnswer.value = option;
+};
 
 // 检查答案
 const checkAnswer = () => {
-  if (selectedAnswer.value === null) return
+  if (selectedAnswer.value === null) return;
 
   if (selectedAnswer.value === itemsToCount.value) {
-    feedbackMessage.value = '太棒了，完全正确！'
-    isCorrect.value = true
-    gameStore.incrementScore(10) // 答对加10分
+    feedbackMessage.value = '太棒了，完全正确！';
+    isCorrect.value = true;
+    gameStore.incrementScore(10); // 答对加10分
+    audioService.speakText('太棒了，完全正确！');
     // 延迟1.5秒开始新游戏
-    setTimeout(setupNewGame, 1500)
+    setTimeout(setupNewGame, 1500);
   } else {
-    feedbackMessage.value = '哎呀，再试一次吧！'
-    isCorrect.value = false
+    feedbackMessage.value = '哎呀，再试一次吧！';
+    isCorrect.value = false;
+    audioService.speakText('哎呀，再试一次吧！');
   }
-}
+};
 
 // 组件挂载时开始第一局游戏
 onMounted(() => {
-  setupNewGame()
-})
+  setupNewGame();
+});
 </script>
