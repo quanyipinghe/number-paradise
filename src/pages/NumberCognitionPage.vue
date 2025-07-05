@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 pt-6 pb-16 sm:p-6 sm:pt-8 sm:pb-20 md:p-8 md:pt-10 md:pb-24">
+  <div class="p-4 sm:p-6 md:p-8 safe-content">
     <header class="mb-6 text-center">
       <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary">互动数字认知</h1>
       <p class="mt-2 text-lg text-brand-text">
@@ -365,3 +365,25 @@ onUnmounted(() => {
   window.removeEventListener('click', handlePageClick)
 })
 </script>
+
+<style scoped>
+/* 针对移动设备的安全区域内边距 */
+.safe-content {
+  padding-top: max(1.5rem, env(safe-area-inset-top, 0px) + 5rem);
+  padding-bottom: max(5rem, env(safe-area-inset-bottom, 0px) + 5rem);
+  min-height: 100vh;
+}
+
+/* 针对iOS Safari的特殊处理 */
+@supports (-webkit-touch-callout: none) {
+  .safe-content {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5rem);
+  }
+  
+  .fixed.inset-0 {
+    top: env(safe-area-inset-top, 0px);
+    bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+</style>

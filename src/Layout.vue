@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen flex-col font-comic">
+  <div class="flex h-screen flex-col font-comic safe-area-padding">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-primary shadow-lg">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
@@ -126,17 +126,44 @@ const mobileRoutes = [
 /* 为移动端底部导航添加额外的底部内边距 */
 @media (max-width: 768px) {
   .flex-grow {
-    padding-bottom: 70px; /* 增加底部内边距 */
+    padding-bottom: 80px !important; /* 增加底部内边距并强制应用 */
   }
   
   /* 确保固定在底部的元素不会被底部导航栏遮挡 */
   .fixed.bottom-0 {
-    bottom: 70px;
+    bottom: 80px;
   }
   
   /* 排除底部导航栏本身 */
   .fixed.bottom-0.z-40 {
     bottom: 0;
+  }
+}
+
+/* 添加安全区域内边距，特别是针对iOS设备 */
+.safe-area-padding {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 针对Safari浏览器的特殊处理 */
+@supports (-webkit-touch-callout: none) {
+  /* 针对iOS Safari */
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+  
+  nav.fixed.top-0 {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  
+  .fixed.bottom-0.z-40 {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  main.flex-grow {
+    padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
   }
 }
 </style>

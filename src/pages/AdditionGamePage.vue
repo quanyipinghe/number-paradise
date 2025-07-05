@@ -1,7 +1,7 @@
 <template>
-  <div class="flex h-full w-full items-center justify-center py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8">
+  <div class="p-4 sm:p-6 md:p-8 safe-content">
     <div
-      class="w-full max-w-3xl rounded-3xl bg-brand-bg/90 p-6 text-center shadow-2xl backdrop-blur-sm sm:p-10 my-8 sm:my-10 md:my-12"
+      class="mx-auto w-full max-w-3xl rounded-3xl bg-brand-bg/90 p-6 text-center shadow-2xl backdrop-blur-sm sm:p-10 my-6 sm:my-8 md:my-10"
     >
       <h1 class="mb-4 text-4xl font-bold text-brand-primary sm:text-5xl">
         {{ firstNumber }} + {{ secondNumber }} = ?
@@ -293,3 +293,25 @@ onMounted(() => {
   }
 });
 </script>
+
+<style scoped>
+/* 针对移动设备的安全区域内边距 */
+.safe-content {
+  padding-top: max(1.5rem, env(safe-area-inset-top, 0px) + 5rem);
+  padding-bottom: max(5rem, env(safe-area-inset-bottom, 0px) + 5rem);
+  min-height: 100vh;
+}
+
+/* 针对iOS Safari的特殊处理 */
+@supports (-webkit-touch-callout: none) {
+  .safe-content {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5rem);
+  }
+  
+  .fixed.inset-0 {
+    top: env(safe-area-inset-top, 0px);
+    bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+</style>
