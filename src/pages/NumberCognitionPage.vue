@@ -1,7 +1,7 @@
 <template>
-  <div class="p-4 sm:p-6 md:p-8">
+  <div class="p-4 pt-6 pb-16 sm:p-6 sm:pt-8 sm:pb-20 md:p-8 md:pt-10 md:pb-24">
     <header class="mb-6 text-center">
-      <h1 class="text-5xl font-bold text-brand-primary">互动数字认知</h1>
+      <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary">互动数字认知</h1>
       <p class="mt-2 text-lg text-brand-text">
         点击下面的数字宝宝，听听它的声音吧！
       </p>

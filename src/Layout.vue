@@ -51,7 +51,7 @@
         </div>
       </div>
     </nav>
-    <main class="flex-grow overflow-y-auto bg-brand-bg pt-20">
+    <main class="flex-grow overflow-y-auto bg-brand-bg pt-20 pb-16 md:pb-0">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -126,7 +126,17 @@ const mobileRoutes = [
 /* 为移动端底部导航添加额外的底部内边距 */
 @media (max-width: 768px) {
   .flex-grow {
-    padding-bottom: 60px;
+    padding-bottom: 70px; /* 增加底部内边距 */
+  }
+  
+  /* 确保固定在底部的元素不会被底部导航栏遮挡 */
+  .fixed.bottom-0 {
+    bottom: 70px;
+  }
+  
+  /* 排除底部导航栏本身 */
+  .fixed.bottom-0.z-40 {
+    bottom: 0;
   }
 }
 </style>
