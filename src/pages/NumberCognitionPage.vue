@@ -165,7 +165,8 @@ import NumberGrid from '../components/NumberGrid.vue'
 import NumberPopup from '../components/NumberPopup.vue'
 import CharacterGuide from '../components/CharacterGuide.vue'
 import { audioService } from '../services/AudioService'
-import { useGameStore, Badge } from '../store/game'
+import { useGameStore } from '../store/game'
+import type { Badge } from '../store/game'
 
 const gameStore = useGameStore()
 

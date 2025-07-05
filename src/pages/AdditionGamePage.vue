@@ -82,7 +82,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { useGameStore } from '../store/game';
-import { audioService } from '../services/AudioService';
 import CharacterGuide from '../components/CharacterGuide.vue';
 
 // 使用Pinia Store
@@ -164,7 +163,7 @@ watch(feedbackMessage, (newValue) => {
 // 生成新游戏
 const setupNewGame = () => {
   // 随机选择两个不同的emoji
-  const emojiIndices = [];
+  const emojiIndices: number[] = [];
   while (emojiIndices.length < 2) {
     const index = Math.floor(Math.random() * emojiPool.length);
     if (!emojiIndices.includes(index)) {

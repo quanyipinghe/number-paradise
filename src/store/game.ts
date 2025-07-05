@@ -48,7 +48,7 @@ export const useGameStore = defineStore('game', {
     
     // 角色系统
     characters: [] as Character[],
-    selectedCharacter: 'wizard',
+    selectedCharacter: 'wizard' as 'wizard' | 'robot' | 'fairy',
     
     // 学习进度
     numbersExplored: [] as number[],
@@ -370,7 +370,7 @@ export const useGameStore = defineStore('game', {
         this.characters.forEach(c => {
           c.selected = c.id === characterId
         })
-        this.selectedCharacter = characterId
+        this.selectedCharacter = character.type
         return true
       }
       return false
@@ -445,7 +445,7 @@ export const useGameStore = defineStore('game', {
         character.unlocked = index === 0 // 只保留第一个角色解锁
         character.selected = index === 0
       })
-      this.selectedCharacter = 'wizard'
+      this.selectedCharacter = 'wizard' as 'wizard'
       
       // 重置学习进度
       this.numbersExplored = []

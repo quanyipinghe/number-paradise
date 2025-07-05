@@ -12,7 +12,7 @@
             <!-- 导航按钮 - 在移动设备上隐藏 -->
             <div class="hidden md:flex md:flex-wrap md:items-center md:gap-2 md:sm:gap-3">
               <router-link
-                v-for="(route, index) in routes"
+                v-for="route in routes"
                 :key="route.to"
                 :to="route.to"
                 v-slot="{ isActive }"

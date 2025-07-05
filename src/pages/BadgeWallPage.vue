@@ -155,7 +155,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useGameStore, GameLevel } from '../store/game'
+import { useGameStore } from '../store/game'
+import type { GameLevel } from '../store/game'
 import CharacterGuide from '../components/CharacterGuide.vue'
 
 const gameStore = useGameStore()

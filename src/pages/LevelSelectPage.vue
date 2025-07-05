@@ -221,7 +221,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useGameStore, GameLevel } from '../store/game'
+import { useGameStore } from '../store/game'
+import type { GameLevel } from '../store/game'
 import CharacterGuide from '../components/CharacterGuide.vue'
 
 const gameStore = useGameStore()
