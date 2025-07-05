@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆 -->
+  <circle cx="50" cy="50" r="48" fill="#F8E9FF" />
+  
+  <!-- 精灵头部 -->
+  <circle cx="50" cy="45" r="25" fill="#FFD6EC" />
+  
+  <!-- 精灵脸 -->
+  <circle cx="40" cy="40" r="3" fill="#333" /> <!-- 左眼 -->
+  <circle cx="60" cy="40" r="3" fill="#333" /> <!-- 右眼 -->
+  <path d="M45 50 Q50 55 55 50" stroke="#333" stroke-width="2" fill="none" /> <!-- 微笑 -->
+  
+  <!-- 精灵头发 -->
+  <path d="M30 30 Q35 15 50 20 Q65 15 70 30" fill="#FFB6F3" />
+  <path d="M25 40 Q20 30 25 20 Q30 25 25 40" fill="#FFB6F3" />
+  <path d="M75 40 Q80 30 75 20 Q70 25 75 40" fill="#FFB6F3" />
+  
+  <!-- 精灵翅膀 -->
+  <path d="M30 45 Q15 40 20 60 Q25 55 30 60" fill="#E2BDFF" />
+  <path d="M70 45 Q85 40 80 60 Q75 55 70 60" fill="#E2BDFF" />
+  
+  <!-- 精灵魔法棒 -->
+  <line x1="65" y1="65" x2="80" y2="80" stroke="#FFD700" stroke-width="2" />
+  <polygon points="80,80 83,77 86,84 79,81" fill="#FFD700" />
+  <circle cx="83" cy="77" r="3" fill="#FFFFFF" />
+  
+  <!-- 数学符号 -->
+  <text x="40" y="75" font-family="Arial" font-size="10" fill="#333">+</text>
+  <text x="50" y="75" font-family="Arial" font-size="10" fill="#333">-</text>
+  <text x="60" y="75" font-family="Arial" font-size="10" fill="#333">×</text>
+  <text x="45" y="85" font-family="Arial" font-size="10" fill="#333">÷</text>
+  <text x="55" y="85" font-family="Arial" font-size="10" fill="#333">=</text>
+</svg>
